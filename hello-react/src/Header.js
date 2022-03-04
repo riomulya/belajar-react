@@ -7,6 +7,10 @@ class Header extends Component {
       datalist: this.props.lists,
       daftar: "Daftar Makanan Nusantara",
     };
+    this.handleMessage = this.handleMessage.bind(this);
+  }
+  handleMessage() {
+    alert(this.state.daftar);
   }
   render() {
     return (
@@ -14,6 +18,9 @@ class Header extends Component {
         <h2>class Header</h2>
         <p>{this.state.daftar}</p>
         <p>{this.state.datalist}</p>
+        <a href="/" onClick={this.handleMessage}>
+          Halaman Header
+        </a>
       </div>
     );
   }
