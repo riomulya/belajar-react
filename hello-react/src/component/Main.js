@@ -11,8 +11,8 @@ class Main extends Component {
     this.handleChange = this.handleChange.bind(this);
   }
 
-  handleChange() {
-    console.error("klik");
+  handleChange(e) {
+    console.error(e.target.value);
   }
 
   rubahData() {
