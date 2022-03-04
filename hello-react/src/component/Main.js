@@ -14,7 +14,9 @@ class Main extends Component {
   }
 
   rubahData() {
-    this.setState({ title: "Pilih Menu makanan" });
+    this.setState((state, props) => {
+      return { title: "Pilih Menu makanan" };
+    });
   }
 
   render() {
