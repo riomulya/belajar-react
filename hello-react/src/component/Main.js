@@ -6,6 +6,7 @@ class Main extends Component {
     this.state = {
       title: "Menu Makanan",
       title2: "Menu Minuman",
+      valueHolder: "Nasi Padang",
     };
     this.rubahData = this.rubahData.bind(this);
     this.handleChange = this.handleChange.bind(this);
@@ -29,7 +30,11 @@ class Main extends Component {
         <button onClick={this.rubahData}>Rubah Data</button>
         <br />
         <br />
-        <input type="text" onChange={this.handleChange}></input>
+        <input
+          type="text"
+          onChange={this.handleChange}
+          placeholder={this.state.valueHolder}
+        ></input>
       </div>
     );
   }
