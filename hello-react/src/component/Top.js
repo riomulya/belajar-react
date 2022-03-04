@@ -1,13 +1,17 @@
 import React from "react";
 
 const Top = () => {
-  const handlePesan = (value) => {
+  const handlePesan = (value, e) => {
+    e.preventDefault();
     alert("Halaman Top di klik");
     alert(value);
   };
   return (
     <div>
-      <a href="/" onClick={() => handlePesan("pesan dari handling function")}>
+      <a
+        href="/"
+        onClick={(e) => handlePesan("pesan dari handling function", e)}
+      >
         Halaman Top
       </a>
     </div>
