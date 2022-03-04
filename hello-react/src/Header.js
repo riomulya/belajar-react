@@ -9,7 +9,8 @@ class Header extends Component {
     };
     this.handleMessage = this.handleMessage.bind(this);
   }
-  handleMessage() {
+  handleMessage(value) {
+    alert(value);
     alert(this.state.daftar);
   }
   render() {
@@ -18,7 +19,10 @@ class Header extends Component {
         <h2>class Header</h2>
         <p>{this.state.daftar}</p>
         <p>{this.state.datalist}</p>
-        <a href="/" onClick={this.handleMessage}>
+        <a
+          href="/"
+          onClick={() => this.handleMessage("Pesan dari class component")}
+        >
           Halaman Header
         </a>
       </div>
