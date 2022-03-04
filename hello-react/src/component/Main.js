@@ -5,17 +5,14 @@ class Main extends Component {
     super(props);
     this.state = {
       title: "Menu Makanan",
+      title2: "Menu Minuman",
     };
     this.rubahData = this.rubahData.bind(this);
   }
 
-  balikData() {
-    this.setState(this.state.title);
-  }
-
   rubahData() {
     this.setState((state, props) => {
-      return { title: "Pilih Menu makanan" };
+      return { title: state.title2, title2: state.title };
     });
   }
 
@@ -23,6 +20,7 @@ class Main extends Component {
     return (
       <div>
         <h3>{this.state.title}</h3>
+        <h3>{this.state.title2}</h3>
         <button onClick={this.rubahData}>Rubah Data</button>
       </div>
     );
