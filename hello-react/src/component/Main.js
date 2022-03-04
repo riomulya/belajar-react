@@ -8,6 +8,11 @@ class Main extends Component {
       title2: "Menu Minuman",
     };
     this.rubahData = this.rubahData.bind(this);
+    this.handleChange = this.handleChange.bind(this);
+  }
+
+  handleChange() {
+    console.error("klik");
   }
 
   rubahData() {
@@ -22,6 +27,9 @@ class Main extends Component {
         <h3>{this.state.title}</h3>
         <h3>{this.state.title2}</h3>
         <button onClick={this.rubahData}>Rubah Data</button>
+        <br />
+        <br />
+        <input type="text" onChange={this.handleChange}></input>
       </div>
     );
   }
