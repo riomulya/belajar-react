@@ -13,7 +13,11 @@ class Main extends Component {
   }
 
   handleChange(e) {
-    console.error(e.target.value);
+    this.setState({ valueHolder: e.target.value });
+    // this.setState((state, props) => {
+    //   return{
+    //   valueHolder: e.target.value}
+    // });
   }
 
   rubahData() {
@@ -33,7 +37,7 @@ class Main extends Component {
         <input
           type="text"
           onChange={this.handleChange}
-          placeholder={this.state.valueHolder}
+          value={this.state.valueHolder}
         ></input>
       </div>
     );
