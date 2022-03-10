@@ -13,7 +13,7 @@ class App extends Component {
         <Top />
         <h1> hello react </h1>
         <Main />
-        <Lists />
+        {/* {<Lists />} */}
         <Footer name="Rio Mulya" />
       </div>
     );
