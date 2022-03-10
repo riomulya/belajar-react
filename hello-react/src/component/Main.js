@@ -1,22 +1,5 @@
 import React, { Component } from "react";
-const menuMakanan = [
-  {
-    nama: "Mie Ayam++",
-    harga: 10000,
-  },
-  {
-    nama: "Bakso++",
-    harga: 15000,
-  },
-  {
-    nama: "Mie Ayam Bakso",
-    harga: 20000,
-  },
-  {
-    nama: "Soto",
-    harga: 10000,
-  },
-];
+import menuMakanan from "../Lib/Food";
 class Main extends Component {
   constructor(props) {
     super(props);
@@ -70,7 +53,9 @@ class Main extends Component {
           console.log(value);
           return (
             <div key={index}>
-              <p>No : {index + 1}</p>
+              <p>
+                <strong>No : {index + 1}</strong>
+              </p>
               <p>Nama Makanan : {value.nama}</p>
               <p>Harga : {value.harga}</p>
             </div>
