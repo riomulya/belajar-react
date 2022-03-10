@@ -8,24 +8,6 @@ class Main extends Component {
       title2: "Menu Minuman",
       inputValue: "",
       inputKota: "",
-      menuMakanan: [
-        {
-          nama: "Mie Ayam",
-          harga: 10000,
-        },
-        {
-          nama: "Bakso",
-          harga: 15000,
-        },
-        {
-          nama: "Mie Ayam Bakso",
-          harga: 20000,
-        },
-        {
-          nama: "Soto",
-          harga: 10000,
-        },
-      ],
     };
     this.rubahData = this.rubahData.bind(this);
     this.handleChange = this.handleChange.bind(this);
@@ -67,7 +49,7 @@ class Main extends Component {
           value={this.state.inputKota}
           placeholder=" Kota"
         ></input>
-        {this.state.menuMakanan.map((value, index) => {
+        {this.props.menuMakanan.map((value, index) => {
           console.log(value);
           return (
             <div key={index}>
