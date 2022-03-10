@@ -9,11 +9,18 @@ class Header extends Component {
       statusRendering: true,
     };
     this.handleMessage = this.handleMessage.bind(this);
+    this.handleElement = this.handleElement.bind(this);
   }
   handleMessage(value, e) {
     e.preventDefault();
     alert(value);
     alert(this.state.daftar);
+  }
+
+  handleElement() {
+    this.setState((state, props) => {
+      return { statusRendering: !this.state.statusRendering };
+    });
   }
 
   componentDidMount() {
@@ -22,10 +29,11 @@ class Header extends Component {
 
   render() {
     console.log("Menjalankan Render");
+    console.log(this.state.statusRendering);
 
     return (
       <div>
-        {this.state.statusRendering === false ? (
+        {this.state.statusRendering === true ? (
           <div>
             <h1>Selamat Datang</h1>
             <h2>Silahkan Pilih Menu</h2>
@@ -36,6 +44,10 @@ class Header extends Component {
             <h2>Jangan Lupa datang Kembali</h2>
           </div>
         )}
+        <br />
+        <button onClick={this.handleElement}>Change</button>
+        <br />
+        <br />
       </div>
     );
 
