@@ -14,7 +14,13 @@ class Header extends Component {
     alert(value);
     alert(this.state.daftar);
   }
+
+  componentDidMount() {
+    console.log("menjalankan componentDidMount");
+  }
+
   render() {
+    console.log("Menjalankan Render");
     return (
       <div>
         <h2>class Header</h2>
