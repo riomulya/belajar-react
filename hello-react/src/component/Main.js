@@ -1,5 +1,22 @@
 import React, { Component } from "react";
-
+const menuMakanan = [
+  {
+    nama: "Mie Ayam++",
+    harga: 10000,
+  },
+  {
+    nama: "Bakso++",
+    harga: 15000,
+  },
+  {
+    nama: "Mie Ayam Bakso",
+    harga: 20000,
+  },
+  {
+    nama: "Soto",
+    harga: 10000,
+  },
+];
 class Main extends Component {
   constructor(props) {
     super(props);
@@ -49,7 +66,7 @@ class Main extends Component {
           value={this.state.inputKota}
           placeholder=" Kota"
         ></input>
-        {this.props.menuMakanan.map((value, index) => {
+        {menuMakanan.map((value, index) => {
           console.log(value);
           return (
             <div key={index}>
