@@ -1,11 +1,5 @@
 import React, { Component } from "react";
-
-const judul = {
-  color: "purple",
-  fontFamily: "sans-serif",
-  margin: "350px",
-  textAlign: "center",
-};
+import "./Header.css";
 class Header extends Component {
   constructor(props) {
     super(props);
@@ -54,7 +48,7 @@ class Header extends Component {
           </div>
         ) : (
           <div>
-            <h1 style={{ judul }}>Selamat Tinggal</h1>
+            <h1 className="judul">Selamat Tinggal</h1>
             <h2>Jangan Lupa datang Kembali</h2>
           </div>
         )}
