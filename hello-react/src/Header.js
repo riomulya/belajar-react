@@ -1,5 +1,11 @@
 import React, { Component } from "react";
 
+const judul = {
+  color: "purple",
+  fontFamily: "sans-serif",
+  margin: "350px",
+  textAlign: "center",
+};
 class Header extends Component {
   constructor(props) {
     super(props);
@@ -35,12 +41,20 @@ class Header extends Component {
       <div>
         {this.state.statusRendering === true ? (
           <div>
-            <h1>Selamat Datang</h1>
+            <h1
+              style={{
+                color: "red",
+                fontFamily: "sans-serif",
+                paddingTop: "50px",
+              }}
+            >
+              Selamat Datang
+            </h1>
             <h2>Silahkan Pilih Menu</h2>
           </div>
         ) : (
           <div>
-            <h1>Selamat Tinggal</h1>
+            <h1 style={{ judul }}>Selamat Tinggal</h1>
             <h2>Jangan Lupa datang Kembali</h2>
           </div>
         )}
