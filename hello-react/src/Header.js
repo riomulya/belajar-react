@@ -48,8 +48,10 @@ class Header extends Component {
           </div>
         ) : (
           <div>
-            <h1 className="judul">Selamat Tinggal</h1>
-            <h2>Jangan Lupa datang Kembali</h2>
+            <h1 className="judul">
+              Selamat Tinggal
+              <h2>Jangan Lupa datang Kembali</h2>
+            </h1>
           </div>
         )}
         <br />
