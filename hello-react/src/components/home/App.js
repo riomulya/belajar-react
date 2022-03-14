@@ -1,8 +1,8 @@
 import React, { Component } from "react";
-import Top from "./components/home/Top";
-import Header from "./components/home/Header";
-import Footer from "./components/home/Footer";
-import Custominput from "./components/home/Custominput";
+import Top from "./components/Top";
+import Header from "./Header";
+import Footer from "./Footer";
+import Custominput from "./components/Custominput";
 // import Form from "./component/Form";
 // import Lists from "./list/Lists";
 // import Main from "./component/Main";
