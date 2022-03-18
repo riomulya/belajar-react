@@ -7,6 +7,11 @@ class App extends Component {
       dataApi: [],
     };
   }
+  filter(value) {
+    if (value === 1) {
+      return;
+    }
+  }
   componentDidMount() {
     // fetch("https://jsonplaceholder.typicode.com/photos")
     //   .then((response) => response.json())
@@ -27,12 +32,18 @@ class App extends Component {
       <div>
         <h1>Helo Api</h1>
         {this.state.dataApi.map((data, index) => {
-          return (
-            <span key={index} style={{ margin: "5px" }}>
-              <p>No : {data.id}</p>
-              <img src={data.thumbnailUrl} alt={data.title} />
-            </span>
-          );
+          if (data.albumId === 1 || data.albumId === 2) {
+            return (
+              <span key={index} style={{ margin: "5px" }}>
+                <p>No : {data.id}</p>
+                <p>Album Ke : {data.albumId}</p>
+                <p>
+                  Judul : <strong>{data.title}</strong>
+                </p>
+                <img src={data.thumbnailUrl} alt={data.title} />
+              </span>
+            );
+          }
         })}
       </div>
     );
