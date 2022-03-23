@@ -5,26 +5,66 @@ class App extends Component {
     super(props);
     this.state = {
       dataApi: [],
+      edit: false,
       dataPost: {
         title: "",
         thumbnailUrl: "",
         albumId: "",
+        id: 1,
       },
     };
     this.handleRemove = this.handleRemove.bind(this);
     this.reloadData = this.reloadData.bind(this);
     this.inputChange = this.inputChange.bind(this);
     this.onsubmitForm = this.onsubmitForm.bind(this);
+    this.getDataId = this.onsubmitForm.bind(this);
   }
-  onsubmitForm() {
-    axios.post("http://localhost:3004/posts", this.state.dataPost).then(() => {
-      this.reloadData();
+  onsubmitForm = () => {
+    if (this.state.edit === false) {
+      axios
+        .post("http://localhost:3004/posts", this.state.dataPost)
+        .then(() => {
+          this.reloadData();
+          this.clearData();
+        });
+    } else {
+      axios
+        .put(
+          `http://localhost:3004/posts/${this.state.dataPost.id}`,
+          this.state.dataPost
+        )
+        .then(() => {
+          this.reloadData();
+        });
+    }
+  };
+
+  clearData = () => {
+    let newdataPost = { ...this.state.dataPost };
+    newdataPost["albumId"] = "";
+    newdataPost["title"] = "";
+    newdataPost["thumbnailUrl"] = "";
+
+    this.setState({
+      dataPost: newdataPost,
     });
-  }
+  };
+
+  getDataId = (e) => {
+    axios.get(`http://localhost:3004/posts/${e.target.value}`).then((res) => {
+      console.log(res);
+      this.setState({
+        dataApi: res.data,
+        edit: true,
+      });
+    });
+  };
 
   inputChange(e) {
     let newdataPost = { ...this.state.dataPost };
-    newdataPost["id"] = new Date().getTime();
+    if (this.state.edit === false) {
+      newdataPost["id"] = new Date().getTime();
+    }
     newdataPost[e.target.name] = e.target.value;
 
     this.setState({ dataPost: newdataPost }, () =>
@@ -36,6 +76,7 @@ class App extends Component {
     axios.get("http://localhost:3004/posts").then((res) => {
       this.setState({
         dataApi: res.data,
+        edit: "false",
       });
     });
   }
@@ -68,9 +109,11 @@ class App extends Component {
                 placeholder="Masukkan Nomor Album"
                 style={{ padding: "10px" }}
                 onChange={this.inputChange}
+                value={this.state.dataPost.albumId}
                 name="albumId"
               ></input>
               <input
+                value={this.state.dataPost.title}
                 type="text"
                 placeholder="Masukkan Tittle"
                 style={{ padding: "10px", margin: "10px" }}
@@ -78,6 +121,7 @@ class App extends Component {
                 name="title"
               ></input>
               <input
+                value={this.state.dataPost.thumbnailUrl}
                 type="text"
                 placeholder="Masukkan link Gambar"
                 style={{ padding: "10px", margin: "10px" }}
@@ -89,7 +133,7 @@ class App extends Component {
                 type="submit"
                 onClick={this.onsubmitForm}
               >
-                Tambah
+                Save Data
               </button>
             </span>
           </>
@@ -105,6 +149,13 @@ class App extends Component {
                 <p>
                   <button value={data.id} onClick={this.handleRemove}>
                     Delete
+                  </button>
+                  <button
+                    value={data.id}
+                    onClick={this.getDataId}
+                    style={{ margin: "5px" }}
+                  >
+                    Edit
                   </button>
                 </p>
                 <br />
